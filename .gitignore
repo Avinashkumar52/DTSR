@@ -1,0 +1,9 @@
+node_modules/
+.env
+debug.log
+error.log
+database.json
+uploads/*
+!uploads/.gitkeep
+.vscode/
+.DS_Store

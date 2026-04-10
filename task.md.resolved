@@ -1,0 +1,20 @@
+# Task: Digital Suggestion Box (Full Features)
+
+- [x] Planning 
+  - [x] Analyze 8 new core features
+  - [x] Analyze image upload & adult content moderation requirement
+  - [x] Proceeding with Client-Side UI first
+- [x] User Frontend Updates (Phase 1)
+  - [x] Fix Delete Suggestion feature (Z-index & Backend Route)
+  - [x] Fix Category Selection navigation (Harden Z-index & Event Handlers)
+  - [x] Add staggered entrance animations to Stage 2 Category Selection
+  - [x] Implement Comment/Reply System for suggestions
+  - [x] Sort Suggestions by reactions for accurate Ranking (Gold/Silver)
+  - [x] Implement Category-Based Suggestion Filtering (Feed separation)
+  - [x] Implement Professional Structured Category System (Stage 2)
+  - [x] Implement 3-Stage Navigation Flow (Splash -> Category -> Form)
+  - [x] Remove redundant Category Selection from Stage 3
+  - [x] Add "Back" button to Stage 3 for returning to Category Selection
+  - [x] Move Category Selection to the intermediate "Second Page"
+  - [x] Add badge system (Gold/Silver) for top 2 ideas
+  - [x] Restore "Enter System" splash screen animation to Backend

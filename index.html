@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Suggestion Box</title>
+    <!-- Modern Typography: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Modern Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Global Loading Overlay -->
+    <div id="global-loader" class="global-loader hidden">
+        <div class="loader-content">
+            <!-- Pulsing Bulb Loader -->
+            <div class="spinner-container">
+                <img src="loader-bulb.png" alt="Loading..." class="loader-bulb">
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loader-text">Initializing Systems...</div>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Opening / Intro Page (STAGE 1) -->
+    <div id="intro-page" class="intro-page">
+        <div class="intro-content">
+            <img src="logo.png" alt="CMRIT Logo" class="project-logo intro-logo">
+            <h1 class="intro-title">HELLO <span class="shock-text">CMRIT</span></h1>
+            <div class="text-slideshow">
+                <div class="slideshow-wrapper">
+                    <span>SHARE YOUR IDEAS</span>
+                    <span>REPORT ISSUES</span>
+                    <span>SUGGEST NEW FEATURES</span>
+                    <span>MAKE AN IMPACT</span>
+                </div>
+            </div>
+            <button id="enter-app-btn" class="enter-btn">
+                <span>Let's Go</span>
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Category Selection Page (STAGE 2) -->
+    <div id="category-page" class="intro-page hidden">
+        <div class="intro-content">
+            <h1 class="intro-title category-title">Select Category</h1>
+            <p class="intro-subtitle category-subtitle">Choose how you want to contribute</p>
+            <div class="category-scroll-container">
+                <!-- Academic & Curriculum -->
+                <div class="category-section">
+                    <h3><i class='bx bx-book-bookmark'></i> Academic & Curriculum</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Subject Improvement">Subject
+                            Improvement</button>
+                        <button class="intro-cat-btn small" data-value="New Tech Course">New Tech Courses</button>
+                        <button class="intro-cat-btn small" data-value="Syllabus Update">Syllabus Update</button>
+                        <button class="intro-cat-btn small" data-value="Exam Pattern Feedback">Exam Feedback</button>
+                    </div>
+                </div>
+
+                <!-- Lab & Practical -->
+                <div class="category-section">
+                    <h3><i class='bx bx-flask'></i> Lab & Practical</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Lab Equipment Upgrade">Lab Upgrades</button>
+                        <button class="intro-cat-btn small" data-value="Software Tools">Software Tools</button>
+                        <button class="intro-cat-btn small" data-value="Hands-on Projects">Hands-on Projects</button>
+                        <button class="intro-cat-btn small" data-value="Workshop Improvement">Workshops</button>
+                    </div>
+                </div>
+
+                <!-- Technical Development -->
+                <div class="category-section">
+                    <h3><i class='bx bx-code-alt'></i> Technical Development</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Coding Bootcamps">Bootcamps</button>
+                        <button class="intro-cat-btn small" data-value="Hackathon Requests">Hackathons</button>
+                        <button class="intro-cat-btn small" data-value="Technical Club">Technical Clubs</button>
+                        <button class="intro-cat-btn small" data-value="Industry Certification">Certifications</button>
+                    </div>
+                </div>
+
+                <!-- Placement & Career -->
+                <div class="category-section">
+                    <h3><i class='bx bx-briefcase'></i> Placement & Career</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Placement Training">Placement Training</button>
+                        <button class="intro-cat-btn small" data-value="Internship Opportunities">Internships</button>
+                        <button class="intro-cat-btn small" data-value="Resume & Interview">Mock Interviews</button>
+                        <button class="intro-cat-btn small" data-value="Alumni Networking">Alumni Connect</button>
+                    </div>
+                </div>
+
+                <!-- Campus Infrastructure -->
+                <div class="category-section">
+                    <h3><i class='bx bx-building-house'></i> Campus & Infrastructure</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Wi-Fi Improvement">Wi-Fi / Network</button>
+                        <button class="intro-cat-btn small" data-value="Library Resources">Library</button>
+                        <button class="intro-cat-btn small" data-value="Hostel Facilities">Hostel</button>
+                        <button class="intro-cat-btn small" data-value="Transportation">Transportation</button>
+                    </div>
+                </div>
+
+                <!-- Faculty & Admin -->
+                <div class="category-section">
+                    <h3><i class='bx bx-user-voice'></i> Faculty & Admin</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Teaching Method">Teaching Method</button>
+                        <button class="intro-cat-btn small" data-value="Faculty Availability">Availability</button>
+                        <button class="intro-cat-btn small" data-value="Admin Processes">Admin Process</button>
+                        <button class="intro-cat-btn small" data-value="Transparency">Transparency</button>
+                    </div>
+                </div>
+
+                <!-- Student Wellbeing -->
+                <div class="category-section">
+                    <h3><i class='bx bx-heart'></i> Student Wellbeing</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Mental Health Support">Mental Health</button>
+                        <button class="intro-cat-btn small" data-value="Sports & Cultural">Sports & Culture</button>
+                        <button class="intro-cat-btn small" data-value="Anti-Ragging">Safety / Anti-Ragging</button>
+                        <button class="intro-cat-btn small" data-value="Stress Management">Stress Mgmt</button>
+                    </div>
+                </div>
+
+                <!-- Advanced / Professional -->
+                <div class="category-section">
+                    <h3><i class='bx bx-rocket'></i> Professional & Innovation</h3>
+                    <div class="intro-category-grid">
+                        <button class="intro-cat-btn small" data-value="Innovation & Research">Research Ideas</button>
+                        <button class="intro-cat-btn small" data-value="Startup Support">Startup / Incubation</button>
+                        <button class="intro-cat-btn small" data-value="Sustainability">Green Campus</button>
+                        <button class="intro-cat-btn small" data-value="Digital Transformation">Digital Campus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subcategory Selection Page (STAGE 3) -->
+    <div id="subcategory-page" class="intro-page hidden">
+        <div class="intro-content">
+            <button id="back-to-stage2" class="back-nav-btn absolute-back-btn" title="Go back to categories">
+                <i class='bx bx-chevron-left'></i>
+                <span>Back</span>
+            </button>
+            <h1 class="intro-title category-title">Select Subcategory</h1>
+            <p class="intro-subtitle category-subtitle" id="selected-main-category-title">Choose a specific topic</p>
+            <div class="category-scroll-container" id="subcategory-container">
+                <!-- Subcategories injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page (Accessible from Nav) -->
+    <div id="about-page" class="intro-page hidden">
+        <div class="intro-content about-content">
+            <button id="close-about-btn" class="back-nav-btn absolute-back-btn" title="Close About">
+                <i class='bx bx-x'></i>
+                <span>Close</span>
+            </button>
+            <h1 class="intro-title category-title about-title">Digital Suggestion Box</h1>
+            <div class="intro-subtitle about-text">
+                <p>A <strong>Digital Suggestion Box</strong> is an online platform that allows students, staff, or users
+                    to submit their ideas, feedback, and suggestions to improve different aspects of an institution such
+                    as academics, infrastructure, placements, and student wellbeing. Instead of using traditional paper
+                    suggestion boxes, the digital system makes the process <strong>faster, organized, and easily
+                        accessible</strong> through a website or application.</p>
+
+                <p>The main purpose of a Digital Suggestion Box is to <strong>encourage open communication between
+                        students and administration</strong>. It helps institutions understand the needs, problems, and
+                    innovative ideas of students. Users can submit suggestions related to categories like
+                    <strong>academic improvements, campus facilities, technical development, placements, mental health,
+                        and innovation</strong>.
+                </p>
+
+                <p>This system helps management <strong>collect feedback efficiently, analyze common issues, and take
+                        better decisions</strong> to improve the overall quality of education and campus experience. It
+                    also promotes <strong>transparency, student participation, and continuous improvement</strong> in
+                    the institution.</p>
+
+                <p>Overall, a Digital Suggestion Box is a <strong>modern feedback system that supports better
+                        communication, problem solving, and innovation</strong>, helping colleges or organizations grow
+                    and meet the expectations of their community.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page (Accessible from Nav) -->
+    <div id="contact-page" class="intro-page hidden">
+        <div class="intro-content contact-content">
+            <button id="close-contact-btn" class="back-nav-btn absolute-back-btn" title="Close Contact">
+                <i class='bx bx-x'></i>
+                <span>Close</span>
+            </button>
+            <h1 class="intro-title category-title about-title">Contact Us</h1>
+            <div class="intro-subtitle about-text">
+                <p>Have specific questions or need direct assistance? We're here to help.</p>
+                <div class="contact-info-grid">
+                    <div class="contact-item">
+                        <i class='bx bx-envelope'></i>
+                        <span>support@cmrit.ac.in</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-map'></i>
+                        <span>CMRIT Campus, Hyderabad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Page (Accessible from Nav) -->
+    <div id="team-page" class="intro-page hidden">
+        <div class="intro-content team-content">
+            <button id="close-team-btn" class="back-nav-btn absolute-back-btn" title="Close Team Page">
+                <i class='bx bx-x'></i>
+                <span>Close</span>
+            </button>
+            <h1 class="intro-title category-title about-title">Meet Our Team</h1>
+            <p class="intro-subtitle team-subtitle-spacing">The minds behind the Digital Suggestion Box</p>
+
+            <div class="team-grid guide-grid">
+                <!-- Guide -->
+                <div class="team-card guide-card">
+                    <div class="team-avatar">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>P. Divya Goud</h3>
+                        <span class="team-id">Guided By</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Rohith</h3>
+                        <span class="team-id">24R01A6748</span>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ruthvick</h3>
+                        <span class="team-id">24R01A6749</span>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Srujan</h3>
+                        <span class="team-id">24R01A6751</span>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>AvinashKumar</h3>
+                        <span class="team-id">24R01A6752</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Animated Shapes for Glassmorphism Effect -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Floating Connect Support Button -->
+    <a href="mailto:support@cmrit.ac.in" class="float-support-btn" title="Connect / Support">
+        <i class='bx bx-support'></i>
+    </a>
+
+    <!-- Advanced JS Particle Network Canvas -->
+    <canvas id="antigravity-canvas"></canvas>
+
+    <div class="app-container initial-hidden" id="working-page">
+
+        <header class="app-header">
+            <button id="back-to-categories" class="back-nav-btn" title="Go back to categories">
+                <i class='bx bx-chevron-left'></i>
+                <span>Back</span>
+            </button>
+            <img src="logo.png" alt="CMRIT Ideas Logo" class="project-logo app-logo">
+            <h1>Share Your Ideas</h1>
+            <p>Your voice matters. Drop your suggestions, feedback, or feature requests below.</p>
+        </header>
+
+        <main class="main-content">
+
+            <!-- Suggestion Form Section -->
+            <section class="form-section glass-panel">
+                <form id="suggestion-form">
+
+                    <div class="form-group row">
+                        <div class="input-container">
+                            <label for="name">Name (Optional)</label>
+                            <div class="input-wrapper">
+                                <i class='bx bx-user'></i>
+                                <input type="text" id="name" placeholder="Name (Optional)" maxlength="100">
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="category" value="General">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestion">Your Suggestion (Optional if file attached)</label>
+                        
+                        <!-- Trending Quick Tags -->
+                        <div class="trending-tags-container" id="trending-tags-container">
+                            <span class="trending-label"><i class='bx bx-trending-up'></i> Quick Tags:</span>
+                            <button type="button" class="quick-tag-btn">#Library</button>
+                            <button type="button" class="quick-tag-btn">#HostelFood</button>
+                            <button type="button" class="quick-tag-btn">#Exams</button>
+                            <button type="button" class="quick-tag-btn">#Wi-Fi</button>
+                        </div>
+                        
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class='bx bx-message-square-detail'></i>
+                            <textarea id="suggestion" rows="5" maxlength="500"
+                                placeholder="What's on your mind? Be descriptive... (Or attach a file below)"></textarea>
+                        </div>
+                        <div class="char-counter" id="char-counter">0 / 500</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image-upload">Attach a File (Image or PDF) (Optional)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="image-upload"
+                                accept="image/png, image/jpeg, image/gif, application/pdf" class="file-input">
+                            <div class="file-upload-ui" id="file-upload-ui">
+                                <i class='bx bx-cloud-upload'></i>
+                                <span>Click to upload or drag and drop</span>
+                                <small>PNG, JPG, GIF, or PDF up to 5MB</small>
+                            </div>
+                            <img id="image-preview" class="image-preview hidden" src="" alt="Preview">
+                            <button type="button" id="remove-image" class="remove-image-btn hidden"
+                                title="Remove attached file" aria-label="Remove attached file"><i
+                                    class='bx bx-x'></i></button>
+                        </div>
+                        <div id="ai-status" class="ai-status text-muted"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span>Submit Suggestion</span>
+                        <i class='bx bx-send'></i>
+                    </button>
+                </form>
+
+                <!-- Success Message Toast -->
+                <div id="toast" class="toast hidden">
+                    <i class='bx bx-check-circle'></i>
+                    <span>Suggestion captured successfully!</span>
+                </div>
+            </section>
+
+            <!-- Dashboard / Feed Section -->
+            <section class="feed-section glass-panel">
+                <div class="feed-header">
+                    <h2>Recent Suggestions</h2>
+                    <div class="feed-controls feed-controls-styled">
+                        <select id="feed-sort-select" title="Sort suggestions" aria-label="Sort suggestions">
+                            <option value="recent">Recent Messages</option>
+                            <option value="ranking">Ranking Messages</option>
+                        </select>
+                        <div class="stats">
+                            <i class='bx bx-bar-chart-alt-2'></i>
+                            <span id="total-count">0 Total</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="suggestions-container" id="suggestions-container">
+                    <!-- Suggestions will be dynamically injected here by JS -->
+                    <div class="empty-state">
+                        <i class='bx bx-ghost'></i>
+                        <p>No suggestions yet. Be the first to share an idea!</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Canvas Confetti for Success Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- TensorFlow.js and NSFWJS for Client-Side AI Moderation -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nsfwjs@2.4.2/dist/nsfwjs.min.js"></script>
+    <!-- VanillaTilt.js for 3D Animations -->
+    <script src="vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
